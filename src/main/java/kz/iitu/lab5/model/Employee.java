@@ -8,24 +8,20 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Users {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
+    private double fixedSalary;
+    private double hourRate;
+    private int hoursWorked;
+    private float commRate;
 
-    private String surname;
-
-    private String position;
-
-    private int salary;
-
-
-
+    @Enumerated(EnumType.STRING)
+    private EmployeeType emplType;
 }
